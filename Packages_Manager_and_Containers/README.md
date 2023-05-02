@@ -1,5 +1,8 @@
 # Building Reproducible Scientific Software with Open Source Package Managers and Containers
 
+![imagen](https://user-images.githubusercontent.com/7033451/235629773-9659a0f9-7075-4679-8981-c505f22e2a80.png)
+
+
 :rocket: In this workshop, you will learn about the role of open source package managers 👩‍💻 and containers 📦 in building reproducible scientific software. 
 
 :satellite: We will begin with an introduction to Open Science and the importance of software reproducibility in scientific research, and then move on to explore the basics of package managers and containers. In this workshop we will cover topics such as creating and managing virtual environments, installing packages from various sources, and building and running Docker and Singulariy containers. We will also discuss best practices for creating and sharing Docker images for scientific software.
