@@ -8,3 +8,9 @@
 
 :bulb: Whether you are a researcher, software developer, or data scientist, this workshop will provide you with valuable skills for building reproducible and reliable scientific software to deliver to the science community.
 
+## 1. Introduction to Open Science and the importance of software reproducibility
+## 2. Overview of package managers and containers for scientific software
+## 3. Using package managers to install and manage software dependencies
+## 4. Introduction to Docker and containerization
+## 5. Best practices for creating and sharing Docker images for scientific software
+## 6. Hands-on exercises to practice using package managers and creating Docker containers
