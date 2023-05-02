@@ -12,6 +12,11 @@
 :bulb: Whether you are a researcher, software developer, or data scientist, this workshop will provide you with valuable skills for building reproducible and reliable scientific software to deliver to the science community.
 
 ## 1. Introduction to Open Science and the importance of software reproducibility
+
+This section will provide an introduction to the principles of Open Science in Software and the importance of reproducibility in scientific research. Participants will learn about the challenges faced by researchers in ensuring reproducibility, and the role that software dependencies and technical factors can play in these challenges.
+
+:coffee: [Go to the material](./introduction_to_openscience_and_software_reproducibility.md)
+
 ## 2. Overview of package managers and containers for scientific software
 ## 3. Using package managers to install and manage software dependencies
 ## 4. Introduction to Docker and containerization
