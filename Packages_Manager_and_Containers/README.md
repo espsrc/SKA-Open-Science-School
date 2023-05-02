@@ -21,7 +21,7 @@ This section will provide an introduction to the principles of Open Science in S
 
 This section will provide an overview of the basics of package managers and containers for scientific software, including the advantages and disadvantages of using them. Participants will learn how package managers and containers can be used to create reproducible environments for scientific software development and analysis.
 
-::eyeglasses:: [Go to the material](./overview_package_managers_and containers_for_scientific_software.md)
+:eyeglasses: [Go to the material](./overview_package_managers_and containers_for_scientific_software.md)
 
 
 ## 3. Using package managers to install and manage software dependencies
