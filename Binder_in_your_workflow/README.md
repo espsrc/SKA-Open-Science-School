@@ -48,8 +48,12 @@ When you launch a Binder, the following steps take place:
 - Binder launches a Jupyter server that is pre-configured with the Docker image.
 - The user is then directed to the Jupyter server, where they can interact with the code and data in the repository using a web interface.
 
+A workflow that a scientist using Binder could adopt:
+
 ![imagen](https://user-images.githubusercontent.com/7033451/236659996-ec2e0a3e-aade-4e8c-9f15-a2c20db15e7a.png)
-**(C) Juliette Taka, The Turing Way.**
+*Image credit: Juliette Taka, The Turing Way.*
+
+
 
 
 
