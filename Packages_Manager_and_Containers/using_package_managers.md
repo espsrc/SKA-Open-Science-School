@@ -292,3 +292,25 @@ or check what is the list of conda environments with
 conda env list
 ```
 
+#### Removing environments
+
+We can easily remove any environment created (you may need to deactivate it first).
+
+```
+conda env remove -n skaschool_py3.8
+```
+
+### Conclusion
+
+So our replicable project with conda should contain the following:
+
+- environment.yml file
+- Our data file
+- Code or Notebook with the pipeline
+- Instructions to 
+  - activate the environment with conda and
+  - run the pipeline.
+  
+  
+
+
