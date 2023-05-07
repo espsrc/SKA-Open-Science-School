@@ -122,8 +122,72 @@ To build an environment with R you need to create a `runtime.txt` file with the 
 
 This will provide you R of given version (such as 4.1, 3.6, etc), and a CRAN snapshot to install libraries from on the given date. To install more R packages from CRAN you need to add an `install.R` file to your repo. 
 
-### Our first Binder project
+### Our first Binder project: in Python
 
+Binder supports a wide range of computational environments for running Jupyter notebooks and other scientific computing workflows as commented before. These environments include popular programming languages such as Python, R, Julia, and MATLAB, as well as specialized tools for data analysis and machine learning.
+
+Python is a particularly popular choice for scientific computing, and Binder supports Python environments via the Conda package manager or the pip package manager, so from here on we will only focus on *Python-based development*. For the rest of the environments you can consult the corresponding documentation.
+
+#### Create a public repository
+
+We will create a repository on GitHub (or other repository provider) with the name radio-data-analysis where we will progressively incorporate the necessary elements to create a Binderised version of our analysis ready to be executed.
+
+- Remember to add a licence according to this project.
+- Make the repository public and accessible.
+
+#### Create your code and pipeline
+
+We are going to use the next code as an example:
+
+```
+import matplotlib.pyplot as plt
+import numpy as np
+from astropy.io import fits
+from astropy.visualization import (MinMaxInterval, PercentileInterval,
+                                   SqrtStretch, ImageNormalize)
+
+# Load the FITS file
+hdu_list = fits.open('example.fits')
+image_data = hdu_list[0].data
+
+# Display the image
+fig, ax = plt.subplots()
+norm = ImageNormalize(image_data, interval=PercentileInterval(99.5),
+                      stretch=SqrtStretch())
+ax.imshow(image_data, cmap='gray', origin='lower', norm=norm)
+
+# Apply various filters
+fig, (ax1, ax2, ax3) = plt.subplots(ncols=3, figsize=(10, 4))
+ax1.imshow(image_data, cmap='gray', origin='lower')
+ax1.set_title('Original')
+ax2.imshow(np.log10(image_data), cmap='gray', origin='lower')
+ax2.set_title('Logarithmic')
+ax3.imshow(np.power(image_data, 1/3), cmap='gray', origin='lower')
+ax3.set_title('Cubic root')
+
+plt.show()
+```
+
+To have this code in your project, clone this repository or download directly this Jupyter notebook with the name: index.ipynb
+
+#### Add the `requirements.txt` file
+
+As our study focuses on python code, here we can use several options to deploy the software environment and packages that our pipeline will need, such as using the requirements file: ``requirements.txt`` or the working environment file with conda `environment.yml`.
+
+Create a new file in your repository with the name ``requirements.txt`` and add the next lines:
+
+```
+astropy
+numpy
+matplotlib
+```
+
+*Remember to indicate the specific versions if necessary for your analysis.*
+
+
+#### Adding the runtime version of Python
+
+runtime.txt
 
 
 ## Deploying Binder in your own infrastructure
