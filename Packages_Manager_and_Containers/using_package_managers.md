@@ -28,6 +28,13 @@ Libraries that we will need:
 
 ### Using pip
 
+Using pip without a virtual environment can result in package conflicts and compatibility issues. When pip installs a package, it installs it system-wide and it could potentially conflict with other packages or system libraries that depend on different versions of the same package. This can lead to unexpected behavior and make it difficult to reproduce results or debug issues.
+
+For these reasons, it is generally recommended to use virtual environments and then install packages with pip to create isolated environments for our scientific pipelines.
+
+So the ideal for software reproducibility management is to use Python virtual environments, such as the following.
+
+
 ### Using a Python VirtualEnv
 
 Install virtualenv. You can install virtualenv using pip. Open a command prompt or terminal and type the following command:
@@ -93,4 +100,195 @@ casatools==XXX
 casatasks==XXX
 ```
 
+Once we've tested this environment, we can close and deactivate it:
+
+``source skaschool/bin/deactivate``
+
+### Conda/Miniconda
+
+We recommend using conda to manage the dependencies. Miniconda is a light-weight version of Anaconda. 
+First we show how to install Miniconda if you don't have it already. More details https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html#regular-installation
+
+Miniconda works in Linux, Windows and MacOSX.
+
+#### Installation 
+
+Miniconda for Linux:
+
+```
+curl -O https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+bash ./Miniconda3-latest-Linux-x86_64.sh
+rm ./Miniconda3-latest-Linux-x86_64.sh
+```
+
+Miniconda for macOS:
+
+```
+curl -O https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.sh
+bash Miniconda3-latest-MacOSX-x86_64.sh
+rm Miniconda3-latest-MacOSX-x86_64.sh
+```
+
+Miniconda for Windows: You can follow the instructions (download the exe file) from here: https://docs.conda.io/projects/conda/en/latest/user-guide/install/windows.html
+
+
+### Adding Mamba 
+
+Mamba!
+
+Mamba is a very efficient dependency solver. If you don't have it, you can substitute all mamba commands with conda, and it will do the same but slower. You can install it in the base environment with:
+
+```
+conda install mamba -n base -c conda-forge
+```
+
+#### Working with Conda environments
+
+```
+mamba create --name skaschool_py3.8 python=3.8
+```
+
+But we might also want to have another environment with a different python runtime
+
+```
+mamba create --name skaschool_py3.9 python=3.X
+```
+
+To activate this environment, use:
+
+```
+mamba activate skaschool_py3.8
+```
+
+To deactivate an active environment, use the next:
+
+```
+mamba deactivate
+```
+
+We activate the environment again:
+
+```
+mamba activate skaschool_py3.8
+```
+
+Check the version of python here:
+
+
+```
+python --version
+```
+
+Now we can check what is installed in this -empty- environment:
+
+```
+conda list
+```
+
+Will show something like:
+
+```
+# packages in environment at /home/mparra/miniconda3/envs/skaschool_py3.8:
+#
+# Name                    Version                   Build  Channel
+_libgcc_mutex             0.1                        main  
+_openmp_mutex             4.5                       1_gnu  
+ca-certificates           2022.3.29            h06a4308_0  
+certifi                   2020.6.20          pyhd3eb1b0_3  
+ld_impl_linux-64          2.35.1               h7274673_9  
+libffi                    3.3                  he6710b0_2  
+libgcc-ng                 9.3.0               h5101ec6_17  
+libgomp                   9.3.0               h5101ec6_17  
+libstdcxx-ng              9.3.0               hd4cf53a_17  
+ncurses                   6.3                  h7f8727e_2  
+openssl                   1.1.1n               h7f8727e_0  
+pip                       21.2.2           py36h06a4308_0  
+python                    3.6.13               h12debd9_1  
+readline                  8.1.2                h7f8727e_1  
+setuptools                58.0.4           py36h06a4308_0  
+sqlite                    3.38.2               hc218d9a_0  
+tk                        8.6.11               h1ccaba5_0  
+wheel                     0.37.1             pyhd3eb1b0_0  
+xz                        5.2.5                h7b6447c_0  
+zlib                      1.2.12               h7f8727e_1  
+```
+
+#### Adding packages to a conda environment
+
+
+### Manually and on demand 
+
+We can install any software available in `anaconda.org` with a simple command. For example:
+
+```mamba install matplotlib```
+or 
+
+```mamba install numpy```
+
+(?) We can include version as well as with `pip` and requirements.
+
+We can even install the pip package manager:
+
+```
+mamba install pip
+```
+
+To export the list of packages installed in a conda environment to an environment.yml file, you can use the following command:
+
+```
+conda env export --name <environment_name> > environment.yml
+```
+
+Replace `<environment_name>` with the name of the environment you want to export or without it to use the current environment. This will create an `environment.yml` file in the current directory containing the list of packages and their versions installed in the specified environment. With `--from-history` you can get all of the installed packages.
+
+```
+conda env export --from-history
+```
+
+
+#### From an `environment.yml` file
+
+One way to create and manage conda environments is by using an environment.yml file. This file contains the specifications of the packages needed for the project, including the name and version of the packages, and any required dependencies. 
+Here's our example for this environment.yml file:
+
+
+```
+name: skaschool_py3.8_automated
+  
+channels:
+- conda-forge
+- defaults
+
+dependencies:
+- 
+- numpy
+- astropy
+- matplotlib
+- casatools
+- casatasks
+```
+
+To test it, first we need deactivate our environment:
+
+```
+mamba deactivate
+```
+
+And now we can create a new environment based in our environment.yml created by using:
+
+```
+mamba env create -f environment.yml
+```
+
+Once the environment is created, you can activate it using the following command:
+
+```
+conda activate skaschool_py3.8_automated
+```
+
+or check what is the list of conda environments with
+
+```
+conda env list
+```
 
