@@ -30,21 +30,21 @@ This section will provide an in-depth look at how package managers can be used t
 
 :closed_book: [Go to the material](./using_package_managers.md)
 
-## 4. Introduction to Docker and containerization
+## 4. Introduction to software containerization
 
-This section will provide an introduction to Docker and how it can be used to create and share reproducible environments for scientific software. Students will learn how to create Docker images, how to run and manage containers, and how to share images on Docker Hub.
+This section will provide an introduction to Docker/Singularity and how it can be used to create and share reproducible environments for scientific software. Students will learn how to create container images, how to run and manage containers, and how to share images on public hubs.
 
 📦 [Go to the material](./introduction_to_containers.md)
 
-## 5. Best practices for creating and sharing Docker images for scientific software
+## 5. Best practices for creating and sharing containers images and python environments for scientific software
 
-This section will provide an overview of best practices for creating and sharing Docker images for scientific software. Attendees will learn about version control for Dockerfiles, documentation, security considerations, and other best practices for creating and sharing reproducible environments.
+This section will provide an overview of best practices for creating and sharing container images for scientific software. Attendees will learn about version control for Dockerfiles, documentation, security considerations, and other best practices for creating and sharing reproducible environments.
 
 :lock_with_ink_pen: [Go to the material](./best_practices_containers_and_package_managers.md)
 
-## 6. Hands-on exercises to practice using package managers and creating Docker containers
-
-This section will provide participants with hands-on experience using package managers and creating Docker containers. Students will work on exercises related to the examples discussed earlier in the workshop and will have the opportunity to ask questions and receive feedback.
+> ## 6. Hands-on exercises to practice using package managers and creating Docker containers
+>
+>This section will provide participants with hands-on experience using package managers and creating Docker >containers. Students will work on exercises related to the examples discussed earlier in the workshop and will have >the opportunity to ask questions and receive feedback.
 
 :nut_and_bolt: [Go to the material](./hands-on_exercises.md)
 
