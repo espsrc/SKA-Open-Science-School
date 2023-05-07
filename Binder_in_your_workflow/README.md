@@ -95,7 +95,7 @@ MyBinder.org has some limitations that users should be aware of:
 - Concurrent usage: myBinder has a limit on the number of concurrent users that can access a single repository at a time. If the limit is reached, other users may have to wait or be unable to access the repository.
 - Security: myBinder provides a secure computing environment, but it is important to note that the environment is shared with other users. Thus, users should be cautious about sharing sensitive data or code through myBinder.
 
-### Creating a Binder project in a GitHub repository
+### First steps to create Binder project in a GitHub repository
 
 A Binder (also called a Binder-ready repository) is a code repository that contains at least two things:
 
@@ -106,21 +106,23 @@ Configuration files for a Binder repo may be placed in the root of your reposito
 
 We can create the environments for Python Julia and R, as follows:
 
-### Python
+#### Python
 
 To create a Binder with Python support, you need to include a requirements.txt or environment.yml file in your repository.
 
-### Julia
+#### Julia
 
 To build an environment with Julia, include a configuration file called Project.toml.
 
-### R 
+#### R 
 
 To build an environment with R you need to create a `runtime.txt` file with the following format:
 
 ``r-<version>-<YYYY>-<MM>-<DD>``
 
 This will provide you R of given version (such as 4.1, 3.6, etc), and a CRAN snapshot to install libraries from on the given date. To install more R packages from CRAN you need to add an `install.R` file to your repo. 
+
+### Our first Binder project
 
 
 
