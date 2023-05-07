@@ -158,5 +158,92 @@ docker push manuparra/pipeline:v1
 This command will push the tagged image to the registry platform under the specified repository and tag.
 
 
+## Singularity
+
+Singularity is a containerization platform that allows users to create and run portable and reproducible environments. Unlike Docker, Singularity containers do not require root access to run, making them a popular choice in scientific computing, where users often do not have administrative privileges on the computing infrastructure. Singularity can run Docker containers, as well as its own container format, and has a user-friendly command-line interface. It is commonly used in high-performance computing environments to provide reproducible software stacks for scientific workflows.
+
+### Installation
+
+See installation instructions for:
+
+- [Linux](https://ska-telescope.gitlab.io/src/ska-src-training-containers/#h.cpchh14b5v93)
+- [MacOSX](https://ska-telescope.gitlab.io/src/ska-src-training-containers/#h.nuqiqiwd9xpa)
+- [Windows](https://ska-telescope.gitlab.io/src/ska-src-training-containers/#h.vfuryuhkc9ca)
+
+
+### Basic commands
+
+To work with the Singularity there are really only a few commands that provide us with all the operations:
+
+- build : Build a container on your user endpoint or build environment
+- exec : Execute a command to your container
+- inspect : See labels, run and test scripts, and environment variables
+- pull : pull an image from Docker or Singularity Hub
+- run : Run your image as an executable
+- shell : Shell into your image
+
+### Hub of images
+
+Singularity has its own image platform in `.sif` format, but with singularity it is possible to directly use any container that is available on DockerHub. This makes both systems compatible, allowing the use of singularity's own images or other consolidated images from dockerhub.
+
+### Running an example of image
+
+Go to the environment where you have Singularity installed to do some tests. 
+
+```
+singularity pull docker://godlovedc/lolcow
+```
+
+This command will simply download an image that already exists in Docker (`docker://godlovedc/lolcow` from DockerHub: lol docker), and store it as a local file with SIF format.
+
+Then, we execute the image as an executable, simply typing:
+
+```
+singularity run lolcow_latest.sif
+```
+
+### Building our image with Singularity
+
+We have to create a Definition file like this:
+
+
+```
+Bootstrap: docker
+From: manuparra/ubuntu-python3.6-casa6.3:latest
+
+%labels
+    maintainer="Manuel Parra<mparra@iaa.es>"
+    description="Singularity image with Python 3.6, CASA 6.3, and some common packages installed."
+
+%environment
+    # Set the Python path to include the CASA installation
+    export PYTHONPATH=/home/casa/packages/RHEL7/release/casa-release-6.3.0-143.el7/bin/python3.6:/home/casa/packages/RHEL7/release/casa-release-6.3.0-143.el7/lib/python3.6/site-packages:${PYTHONPATH}
+    # Set the CASA data directory to /home/casa/data
+    export CASA_DATA=/home/casa/data
+
+%post
+    # Install required packages
+    apt-get update && \
+    apt-get install -y python3-pip && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+
+    # Install required Python packages
+    pip3 install numpy astropy matplotlib casatools casatasks
+
+    # Set up the CASA environment variables
+    echo 'alias casa="/home/casa/packages/RHEL7/release/casa-release-6.3.0-143.el7/bin/casa"' >> /root/.bashrc
+
+%runscript
+    python /app/pipeline.py
+
+```
+
+Then is time to build this definition file:
+
+```
+sudo singularity build pipeline.sif pipelines.def
+```
+
 
 
