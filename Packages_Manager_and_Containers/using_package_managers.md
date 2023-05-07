@@ -302,7 +302,7 @@ conda env remove -n skaschool_py3.8
 
 ### Conclusion
 
-So our replicable project with conda should contain the following:
+Our replicable project with conda should contain the following:
 
 - environment.yml file
 - Our data file
