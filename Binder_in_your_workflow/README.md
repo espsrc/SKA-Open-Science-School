@@ -53,7 +53,33 @@ A workflow that a scientist using Binder could adopt:
 ![imagen](https://user-images.githubusercontent.com/7033451/236659996-ec2e0a3e-aade-4e8c-9f15-a2c20db15e7a.png)
 *Image credit: Juliette Taka, The Turing Way.*
 
+## Creating a Binder repository and a Binder Project
 
+Let's think that in our research work we create a code that performs different operations with data, generate plots and produces results.
 
+- GitHub is a powerful platform for sharing code, but sharing code is not the same as executing it. 
+- Running code requires multiple interdependent parts, including a copy of the code, the appropriate software to execute it, any extra packages it depends on, and input data required for the analysis.
+- Additionally, you need hardware to run the code on. 
+- Installing and configuring these parts correctly can be challenging, particularly when there are multiple dependencies involved.
+
+Standardizing the execution of software is crucial to making research more reproducible and accessible. When researchers share their code, they must also share the necessary dependencies and configuration files to run it. Without standardization, reproducing the results can become a daunting task, especially for researchers who are not familiar with the particular software stack being used.
+
+*So how about standardising or "binderising" the way we package software, code and data so that it can be easily run on public and private cloud servers? 
+
+To do it we have to take into account the next points:
+
+- *Hardware*: A server to execute code, typically hosted in the cloud but can also be on-premise hardware.
+- *Computational environment*: An isolated environment that contains:
+  - The appropriate software
+  - Any extra package dependencies
+  - Required input data
+  - A copy of the code (Notebooks or scripts)
+- *URL*: A web address where the computational environment is running, allowing you or your collaborators to interact with the code.
+
+### Where I run a "Binderised" application?
+
+Binder can be deployed on your own infrastructure (then we will show your the overall steps), giving you complete control over the hardware and software environment. In addition, you can customize the environment to your needs and specifications, including the ability to install custom software packages, set up authentication and authorization, and even limit the resources available to individual users.
+
+The most common and straightforward option is to use mybinder.org website that provides a free and public version of the interface, making it accessible to anyone who wants to share their computational work with others without worrying about the technical details of setting up the infrastructure.
 
 
