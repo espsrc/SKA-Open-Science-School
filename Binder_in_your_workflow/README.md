@@ -80,6 +80,15 @@ To do it we have to take into account the next points:
 
 Binder can be deployed on your own infrastructure (then we will show your the overall steps), giving you complete control over the hardware and software environment. In addition, you can customize the environment to your needs and specifications, including the ability to install custom software packages, set up authentication and authorization, and even limit the resources available to individual users.
 
-The most common and straightforward option is to use mybinder.org website that provides a free and public version of the interface, making it accessible to anyone who wants to share their computational work with others without worrying about the technical details of setting up the infrastructure.
+The most common and straightforward option is to use mybinder.org website that provides a free and public version of the interface, making it accessible to anyone who wants to share their computational work with others without worrying about the technical details of setting up the infrastructure. 
+
+MyBinder.org has some limitations that users should be aware of:
+
+- Resource constraints: myBinder runs on servers with limited resources, so if your notebook requires a lot of CPU or memory, it may not be able to run on myBinder.
+- Time limits: myBinder sessions have a maximum runtime of 12 hours. If your session exceeds this limit, it will be terminated, and any changes you made during the session will be lost.
+- Disk space limits: myBinder provides a limited amount of disk space for each session, which may not be sufficient for some large datasets or files.
+- Network limitations: myBinder sessions are hosted on servers with limited network bandwidth, so if your notebook requires a lot of data transfer, it may be slow or even fail to load.
+- Concurrent usage: myBinder has a limit on the number of concurrent users that can access a single repository at a time. If the limit is reached, other users may have to wait or be unable to access the repository.
+- Security: myBinder provides a secure computing environment, but it is important to note that the environment is shared with other users. Thus, users should be cautious about sharing sensitive data or code through myBinder.
 
 
