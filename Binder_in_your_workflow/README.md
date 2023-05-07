@@ -2,7 +2,8 @@
 
 ![imagen](https://user-images.githubusercontent.com/7033451/236636063-dc712663-490e-41f4-9ce2-5f2b9f2cd3a3.png)
 
-## What is Binder?
+
+## What is Binder?
 
 Binder is a tool that enables the creation of *interactive, sharable, and reproducible* computational environments based on Jupyter notebooks. It allows users to create a snapshot of their *code* and *environment*, and then share that snapshot with others in a way that allows them to interact with the code and reproduce the results.
 
