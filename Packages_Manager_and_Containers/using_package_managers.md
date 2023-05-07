@@ -82,4 +82,15 @@ All this packages are ready to be used withing the skaschool environment.
 
 (?) What about the versions of the packages we work with? Recommendation: Fix the versions of the packages to make sure that our code only works with those packages.
 
+Change `requirements.txt` and include the versions of the packages:
+
+
+```
+numpy==XXX
+astropy==XXX
+matplotlib==XXX
+casatools==XXX
+casatasks==XXX
+```
+
 
