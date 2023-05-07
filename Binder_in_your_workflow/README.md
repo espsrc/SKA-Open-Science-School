@@ -37,5 +37,19 @@ The idea with Binder is to fix/freeze the software core of your project and be a
 - A way to run computationally intensive workloads or large-scale data analysis.
 - A platform for deploying production-ready applications.
 
+### How does Binder work?
+
+The key idea behind Binder is to take a *GitHub repository* that contains *code* and *environment files* and build a custom *Docker image* that includes all the necessary dependencies needed to run the code.
+
+When you launch a Binder, the following steps take place:
+
+- Binder scans/download the GitHub repository for a Binder configuration file (either binder.yml or Dockerfile).
+- Binder builds a Docker image based on the instructions in the Binder configuration file. This image contains all the dependencies needed to run the code in the repository.
+- Binder launches a Jupyter server that is pre-configured with the Docker image.
+- The user is then directed to the Jupyter server, where they can interact with the code and data in the repository using a web interface.
+
+![imagen](https://user-images.githubusercontent.com/7033451/236659996-ec2e0a3e-aade-4e8c-9f15-a2c20db15e7a.png)
+**(C) Juliette Taka, The Turing Way.**
+
 
 
