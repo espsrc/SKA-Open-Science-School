@@ -126,3 +126,9 @@ This will provide you R of given version (such as 4.1, 3.6, etc), and a CRAN sna
 
 
 
+## Deploying Binder in your own infrastructure
+
+## Conclusions
+
+
+
