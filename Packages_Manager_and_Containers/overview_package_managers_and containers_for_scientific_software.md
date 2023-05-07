@@ -86,5 +86,27 @@ Virtual environments are an important tool for managing dependencies and creatin
 
 ## Containers in software reproducibility
 
+Containers are an increasingly popular way to achieve reproducibility in scientific software development and analysis. Containers provide a complete and isolated environment for running code, including all the required dependencies and libraries, making it easier to ensure that the code runs the same way across different systems.
+
+Using containers, scientists can package their entire computational environment, including the operating system, libraries, and dependencies, into a single file, which can be easily shared and deployed on different machines. Containers are designed to be platform-independent, so they can run on any operating system that supports the container runtime.
+
+Containers can be created and managed using containerization technologies such as Docker or Singularity. These technologies allow for the creation of images that can be easily shared, reused, and version-controlled, enabling users to capture and replicate their computational environment exactly as it was at the time of analysis.
+
+### Docker
+
+Docker is a containerization platform that enables software developers to build, deploy, and run applications in containers. Containers are lightweight and portable environments (more than VMs) that can be easily moved between systems, making it easier to ensure that code runs consistently across different machines. 
+
+Docker containers are similar to virtual machines but use the host system's kernel instead of creating a separate operating system. This means that Docker containers can start up much faster and require less overhead than virtual machines, making them a popular choice for many types of applications.
+
+### Singularity
+
+Singularity is a containerization platform designed specifically for high-performance computing (HPC) environments. Like Docker, Singularity allows users to create lightweight and portable containers that can be easily moved between systems (portability and reproducibility).
+
+Singularity is optimized for running scientific and HPC applications and it also includes features such as support for parallel processing and integration with job scheduling systems commonly used in HPC environments.
+
+
+
+
+
 
 
