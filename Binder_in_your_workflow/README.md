@@ -37,6 +37,10 @@ The idea with Binder is to fix/freeze the software core of your project and be a
 - A way to run computationally intensive workloads or large-scale data analysis.
 - A platform for deploying production-ready applications.
 
+### Binder use-cases
+
+See the next link: https://mybinder.readthedocs.io/en/latest/using/using.html
+
 ### How does Binder work?
 
 The key idea behind Binder is to take a *GitHub repository* that contains *code* and *environment files* and build a custom *Docker image* that includes all the necessary dependencies needed to run the code.
@@ -90,5 +94,33 @@ MyBinder.org has some limitations that users should be aware of:
 - Network limitations: myBinder sessions are hosted on servers with limited network bandwidth, so if your notebook requires a lot of data transfer, it may be slow or even fail to load.
 - Concurrent usage: myBinder has a limit on the number of concurrent users that can access a single repository at a time. If the limit is reached, other users may have to wait or be unable to access the repository.
 - Security: myBinder provides a secure computing environment, but it is important to note that the environment is shared with other users. Thus, users should be cautious about sharing sensitive data or code through myBinder.
+
+### Creating a Binder project in a GitHub repository
+
+A Binder (also called a Binder-ready repository) is a code repository that contains at least two things:
+
+- Code or content that you’d like people to run. This might be a Jupyter Notebook that explains an idea, or an R script that makes a visualization or a Python Script that run a data analysis.
+- Configuration files for your environment. These files are used by Binder to build the environment needed to run your code. For a list of all configuration files available.
+
+Configuration files for a Binder repo may be placed in the root of your repository or in a `binder/` folder in the repository’s root (i.e. `myproject/binder/`).
+
+We can create the environments for Python Julia and R, as follows:
+
+### Python
+
+To create a Binder with Python support, you need to include a requirements.txt or environment.yml file in your repository.
+
+### Julia
+
+To build an environment with Julia, include a configuration file called Project.toml.
+
+### R 
+
+To build an environment with R you need to create a `runtime.txt` file with the following format:
+
+``r-<version>-<YYYY>-<MM>-<DD>``
+
+This will provide you R of given version (such as 4.1, 3.6, etc), and a CRAN snapshot to install libraries from on the given date. To install more R packages from CRAN you need to add an `install.R` file to your repo. 
+
 
 
