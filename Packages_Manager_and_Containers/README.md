@@ -42,9 +42,4 @@ This section will provide an overview of best practices for creating and sharing
 
 :lock_with_ink_pen: [Go to the material](./best_practices_containers_and_package_managers.md)
 
-> ## 6. Hands-on exercises to practice using package managers and creating Docker containers
->
->This section will provide participants with hands-on experience using package managers and creating Docker >containers. Students will work on exercises related to the examples discussed earlier in the workshop and will have >the opportunity to ask questions and receive feedback.
-
-:nut_and_bolt: [Go to the material](./hands-on_exercises.md)
 
