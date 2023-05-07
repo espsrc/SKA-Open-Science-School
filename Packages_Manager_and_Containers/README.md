@@ -30,7 +30,7 @@ This section will provide an in-depth look at how package managers can be used t
 
 :closed_book: [Go to the material](./using_package_managers.md)
 
-## 4. Introduction to software containerization
+## 4. Working with software containerization
 
 This section will provide an introduction to Docker/Singularity and how it can be used to create and share reproducible environments for scientific software. Students will learn how to create container images, how to run and manage containers, and how to share images on public hubs.
 
