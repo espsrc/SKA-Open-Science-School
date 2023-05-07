@@ -27,7 +27,7 @@ In addition, docker allows you to build your own images and use them from a publ
 
 ### First example with docker: executing a containerised version of `CASA`
 
-Pull de image from a public repository of images in DockerHub:
+Pull of the image from a public repository of images in DockerHub:
 
 ```
 docker pull amigahub/casa:6.5
