@@ -66,21 +66,35 @@ This would download and install the NumPy package and any necessary dependencies
 
 ### pip 
 
+<img width="1041" alt="imagen" src="https://user-images.githubusercontent.com/7033451/236774895-f57f3d22-7e76-45f0-9128-0ffab40e3b13.png">
+
+
 `pip` is the package installer for Python. It is a command-line tool that allows you to install, upgrade, and uninstall Python packages from the Python Package Index (PyPI), as well as other indexes. 
 
 PyPI is a repository of software packages for the Python programming language. Pip helps to resolve dependencies and manages the installation of the required packages, ensuring that the correct version of each package is installed. It is a crucial tool for managing Python packages and creating reproducible environments for scientific software development and analysis.
 
+https://pypi.org/
+
+
 ### Poetry
+
+<img width="1041" alt="imagen" src="https://user-images.githubusercontent.com/7033451/236775188-2cf382e7-4f8c-4fa7-9362-2e92d2c1795b.png">
 
 Poetry is a new Python package manager that simplify dependency management and packaging of Python projects. It provides a simple and easy-to-use command-line interface for managing project dependencies, creating virtual environments, and packaging projects for distribution.
 
 Poetry has gained popularity in the Python community due to its simplicity and focus on reproducibility of environments.
 
+https://python-poetry.org/
+
 ### Conda
+
+<img width="1041" alt="imagen" src="https://user-images.githubusercontent.com/7033451/236775529-08608c67-d856-428a-a91f-aeae4949f7f4.png">
 
 Conda is an open-source package management system and environment management system that helps to install, run, and update software packages and their dependencies. It was primarily designed for data science and scientific computing but can be used for any software in any language. Conda supports packages written in multiple programming languages, including Python, R, Ruby, Lua, Scala, Java, and others.
 
 Conda works by creating isolated environments, where each environment has its own set of packages and dependencies. This approach helps to avoid conflicts between packages and makes it easy to reproduce an environment on different machines. Conda also has a built-in mechanism for creating and sharing environments, making it easy to distribute and reproduce complex software projects.
+
+https://docs.conda.io/en/latest/
 
 #### Miniconda
 
@@ -88,17 +102,27 @@ Miniconda is a minimal installer for conda. It includes only conda, Python, and 
 
 It is a simple alternative to the full Anaconda distribution, which includes a comprehensive collection of packages for scientific computing and data analysis.
 
+https://docs.conda.io/en/latest/miniconda.html
+
 #### Mamba
+
+<img width="1041" alt="imagen" src="https://user-images.githubusercontent.com/7033451/236776287-5b1fc2cb-a0a3-41a2-8217-a401054ebd1c.png">
+
 
 Mamba is a high-performance package manager and an alternative to conda. It is designed to be much faster than conda and has some additional features, such as parallel downloading of packages and an improved solver for resolving package dependencies. Like conda, mamba also supports creating and managing virtual environments, installing packages from various sources, and creating reproducible environments for scientific software development and analysis.
 
+https://mamba.readthedocs.io/en/latest/installation.html
+
 ### Virtual environments
+
+<img width="1041" alt="imagen" src="https://user-images.githubusercontent.com/7033451/236776663-6a80da73-84b1-48cf-a66b-f6c59abb2fd6.png">
 
 Virtual environments are an important concept in the Python ecosystem, as they allow you to create isolated environments with their own set of packages and dependencies.
 
 conda, pip, poetry, etc. support virtual environments. With pip, you can use virtualenv or venv to create a virtual environment, while with conda, you can create and manage environments using the conda command.
 
 Virtual environments are an important tool for managing dependencies and creating reproducible environments, and they can be used in combination with these package managers to provide an even more robust solution.
+
 
 ## Containers in software reproducibility
 
