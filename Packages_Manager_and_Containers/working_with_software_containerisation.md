@@ -170,8 +170,8 @@ docker run -it -v ./output:/output pipeline:v2
 Now we can see the outputs.
 
 **In this point you have created two ways to share your pipeline:**
-- *1) A static version *
-- *2) A flexible version *
+*- 1) A static version *
+*- 2) A flexible version *
 
 
 
@@ -187,17 +187,25 @@ docker login
 
 Once you are logged in, you can tag your local image with the registry URL using the following command:
 
-
 ```
 docker tag pipeline:v1 manuparra/pipeline:v1
 ```
 
-Here, pipeline:v1 is the name of your local image, manuparra is your username on the registry platform, repository is the name of the repository where you want to push the image, and tag is the tag you want to assign to the image.
+```
+docker tag pipeline:v2 manuparra/pipeline:v2
+```
+
+
+Here, pipeline:v1 /  pipeline:v2  is the name of your local image, manuparra is your username on the registry platform, repository is the name of the repository where you want to push the image, and tag is the tag you want to assign to the image.
 
 After tagging the image, you can push it to the registry platform using the following command:
 
 ```
 docker push manuparra/pipeline:v1
+```
+
+```
+docker push manuparra/pipeline:v2
 ```
 
 This command will push the tagged image to the registry platform under the specified repository and tag.
