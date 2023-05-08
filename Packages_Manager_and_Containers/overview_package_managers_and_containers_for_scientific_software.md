@@ -126,6 +126,8 @@ Virtual environments are an important tool for managing dependencies and creatin
 
 ## Containers in software reproducibility
 
+<img width="1041" alt="imagen" src="https://user-images.githubusercontent.com/7033451/236777451-ab467e75-804c-4504-9f3a-e2f896b5be04.png">
+
 Containers are an increasingly popular way to achieve reproducibility in scientific software development and analysis. Containers provide a complete and isolated environment for running code, including all the required dependencies and libraries, making it easier to ensure that the code runs the same way across different systems.
 
 Using containers, scientists can package their entire computational environment, including the operating system, libraries, and dependencies, into a single file, which can be easily shared and deployed on different machines. Containers are designed to be platform-independent, so they can run on any operating system that supports the container runtime.
@@ -134,15 +136,24 @@ Containers can be created and managed using containerization technologies such a
 
 ### Docker
 
+<img width="1041" alt="imagen" src="https://user-images.githubusercontent.com/7033451/236777919-22eb92cd-131d-48e5-a51d-3eebf6069037.png">
+
+
 Docker is a containerization platform that enables software developers to build, deploy, and run applications in containers. Containers are lightweight and portable environments (more than VMs) that can be easily moved between systems, making it easier to ensure that code runs consistently across different machines. 
 
 Docker containers are similar to virtual machines but use the host system's kernel instead of creating a separate operating system. This means that Docker containers can start up much faster and require less overhead than virtual machines, making them a popular choice for many types of applications.
 
+https://www.docker.com/
+
 ### Singularity
+
+<img width="1041" alt="imagen" src="https://user-images.githubusercontent.com/7033451/236778704-bee4e273-5622-46b2-9638-e19735cc0e49.png">
 
 Singularity is a containerization platform designed specifically for high-performance computing (HPC) environments. Like Docker, Singularity allows users to create lightweight and portable containers that can be easily moved between systems (portability and reproducibility).
 
 Singularity is optimized for running scientific and HPC applications and it also includes features such as support for parallel processing and integration with job scheduling systems commonly used in HPC environments.
+
+https://sylabs.io/singularity/
 
 
 
