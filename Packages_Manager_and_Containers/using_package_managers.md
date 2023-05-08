@@ -41,10 +41,9 @@ For these reasons, it is generally recommended to use virtual environments and t
 
 So the ideal for software reproducibility management is to use Python virtual environments, such as the following.
 
-
 ### Using a Python VirtualEnv
 
-Install virtualenv. You can install virtualenv using pip. Open a command prompt or terminal and type the following command:
+In order to use Python Virtual envs, yo have to install virtualenv. To do it open a shell and type the following command:
 
 ``pip3 install virtualenv`` or ``pip install virtualenv``
 
