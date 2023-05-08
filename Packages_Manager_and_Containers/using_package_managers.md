@@ -14,11 +14,10 @@ By the end of this session, you will have a fully scientific reproducible softwa
 
 For this session we will prepare an example to perform the next steps in a pipeline.
 
-- We will use the next FITS file
-- We will load this FITS file
-- We will print a few plots with different filters
-- We will apply flagging to the data
-- Finnally we will apply a cleannig to the data
+- We will use the next FITS file.
+- We will load this FITS file.
+- We will print a few plots with different filters.
+- We will compose a grid of these plots.
 
 Libraries that we will need:
 
