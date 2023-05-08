@@ -1,5 +1,22 @@
 # Overview of package managers and containers for scientific software
 
+![imagen](https://user-images.githubusercontent.com/7033451/236773687-60213283-bc52-4ea3-bd26-3499cfa74dcb.png)
+
+
+  * [Introduction](#introduction)
+    + [Advantages and Disadvantages of package managers](#advantages-and-disadvantages-of-package-managers)
+    + [Advantages and Disadvantages of containers](#advantages-and-disadvantages-of-containers)
+  * [Python Packages Manager and software environments](#python-packages-manager-and-software-environments)
+    + [pip](#pip)
+    + [Poetry](#poetry)
+    + [Conda](#conda)
+      - [Miniconda](#miniconda)
+      - [Mamba](#mamba)
+    + [Virtual environments](#virtual-environments)
+  * [Containers in software reproducibility](#containers-in-software-reproducibility)
+    + [Docker](#docker)
+    + [Singularity](#singularity)
+
 ## Introduction 
 
 Package managers and containers are essential tools for managing scientific software dependencies and creating reproducible environments for software development and analysis.
