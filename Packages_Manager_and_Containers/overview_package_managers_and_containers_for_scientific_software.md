@@ -1,7 +1,6 @@
 # Overview of package managers and containers for scientific software
 
-![imagen](https://user-images.githubusercontent.com/7033451/236773687-60213283-bc52-4ea3-bd26-3499cfa74dcb.png)
-
+![imagen](https://user-images.githubusercontent.com/7033451/236773930-e4079048-3c7b-4e97-9030-618cf09aa035.png)
 
   * [Introduction](#introduction)
     + [Advantages and Disadvantages of package managers](#advantages-and-disadvantages-of-package-managers)
