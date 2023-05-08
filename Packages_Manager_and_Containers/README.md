@@ -11,9 +11,9 @@
 
 :bulb: Whether you are a researcher, software developer, or data scientist, this workshop will provide you with valuable skills for building reproducible and reliable scientific software to deliver to the science community.
 
-## 1. Introduction to Open Science and the importance of software reproducibility
+## 1. Introduction to software reproducibility
 
-This section will provide an introduction to the principles of Open Science in Software and the importance of reproducibility in scientific research. Students will learn about the challenges faced by researchers in ensuring reproducibility, and the role that software dependencies and technical factors can play in these challenges.
+This section will provide an introduction to the importance of reproducibility of the software research. Students will learn about the challenges faced by researchers in ensuring reproducibility, and the role that software dependencies and technical factors can play in these challenges.
 
 :coffee: [Go to the material](./introduction_to_openscience_and_software_reproducibility.md)
 
