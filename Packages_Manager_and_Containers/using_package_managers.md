@@ -165,6 +165,15 @@ Once we've tested this environment, we can close and deactivate it:
 
 ``deactivate``
 
+#### Distributing our pipiline
+
+The way to distribute our project will be a repository where it will be included:
+
+- The requirements.txt file
+- The pipeline file: run.py
+- The installation and execution documentation
+
+
 ### Conda/Miniconda
 
 We recommend using conda to manage the dependencies. Miniconda is a light-weight version of Anaconda. 
@@ -215,13 +224,34 @@ But we might also want to have another environment with a different python runti
 mamba create --name skaschool_py3.9 python=3.X
 ```
 
-To activate this environment, use:
+You can check the conda enviroments created by typing:
+
+```
+mamba env list
+```
+It will output the next:
+
+```
+# conda environments:
+#
+base                     /home/ubuntu/miniconda3
+skaschool_py3.8          /home/ubuntu/miniconda3/envs/skaschool_py3.8
+skaschool_py3.9       *  /home/ubuntu/miniconda3/envs/skaschool_py3.9
+```
+
+To activate the first environment, use:
 
 ```
 mamba activate skaschool_py3.8
 ```
 
-To deactivate an active environment, use the next:
+And you will need to initialize mamba by typing:
+
+```
+mamba init
+```
+
+To deactivate an activated environment, use the next:
 
 ```
 mamba deactivate
@@ -234,7 +264,6 @@ mamba activate skaschool_py3.8
 ```
 
 Check the version of python here:
-
 
 ```
 python --version
@@ -274,8 +303,9 @@ xz                        5.2.5                h7b6447c_0
 zlib                      1.2.12               h7f8727e_1  
 ```
 
-#### Adding packages to a conda environment
 
+
+#### Adding packages to a conda environment
 
 ### Manually and on demand 
 
@@ -294,13 +324,21 @@ We can even install the pip package manager:
 mamba install pip
 ```
 
-To export the list of packages installed in a conda environment to an environment.yml file, you can use the following command:
+Or install packages by using pip:
+
+```
+pip install astropy
+```
+
+With `conda list` you can see the packages installed and the source channel. For this last package you will see that it has been installed from `pip`.
+
+To export the list of packages installed in a conda environment to an `environment.yml` file, you can use the following command:
 
 ```
 conda env export --name <environment_name> > environment.yml
 ```
 
-Replace `<environment_name>` with the name of the environment you want to export or without it to use the current environment. This will create an `environment.yml` file in the current directory containing the list of packages and their versions installed in the specified environment. With `--from-history` you can get all of the installed packages.
+Replace `<environment_name>` with the name of the environment you want to export or without it to use the current environment. This will create an `environment.yml` file in the current directory containing the list of packages and their versions installed in the specified environment. With `--from-history` you can get all of the packages you have explicitly installed.
 
 ```
 conda env export --from-history
