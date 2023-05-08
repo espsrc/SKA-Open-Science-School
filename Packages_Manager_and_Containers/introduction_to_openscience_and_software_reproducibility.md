@@ -11,7 +11,7 @@ Software distribution refers to the process of sharing software and its associat
 
 It is important to ensure that the software can be easily installed and run on different systems and environments. This helps to enable collaboration and accelerate the pace of research and development.
 
-In recent years, increasing emphasis has been placed on ensuring the reproducibility and distribution of software in scientific research.. This has led to the development of various tools and platforms, such as package managers, virtual environments, and containers, which help to ensure that software can be easily installed, managed, and run across different systems and environments.
+In recent years, increasing emphasis has been placed on ensuring the reproducibility and distribution of software in scientific research. This has led to the development of various tools and platforms, such as package managers, virtual environments, and containers, which help to ensure that software can be easily installed, managed, and run across different systems and environments.
 
 ## Challenges
 
