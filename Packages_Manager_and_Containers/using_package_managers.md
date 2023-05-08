@@ -1,5 +1,7 @@
 # Using package managers to manage scientific software deployment and reproducibility
 
+<img width="1041" alt="imagen" src="https://user-images.githubusercontent.com/7033451/236792845-a4efe4a6-f057-4013-9234-4cfce7441b23.png">
+
 In this project, we will be working on creating a reproducible environment for a scientific pipeline. 
 
 To achieve reproducibility and portability, we will be utilizing several package managers like pip, virtual environments, and conda. Incrementally, you will learn the advantages of each of the package managers and which is the best option for your software distribution.
