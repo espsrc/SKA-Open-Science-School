@@ -10,27 +10,36 @@ These tools will help us to manage dependencies and ensure that our pipeline can
 
 By the end of this session, you will have a fully scientific reproducible software environment that can be easily recreated and shared with others.
 
-## Our example for this session
+## Our pipeline for this session
 
 For this session we will prepare an example to perform the next steps in a pipeline.
 
-- We will use the next FITS file.
+- We will use the next FITS file: http://cdsarc.u-strasbg.fr/viz-bin/getCatFile_Redirect/?-plus=-%2b&J/A%2bA/632/A78/./fits/HCG16_CD_rob2_MS.pbcor.fits
 - We will load this FITS file.
-- We will print a few plots with different filters.
-- We will compose a grid of these plots.
+- We will create a few plots with different filters.
+- We will compose a grid of these plots as output.
 
 Libraries that we will need:
 
-- NumPy
-- Astropy
-- MathPlotLib
-- CASA Modular
+- `numpy`
+- `matplotlib`
+- `astropy`
+- `skimage (scikit-image)`
+
+The code is located here:
+
+https://github.com/spsrc/SKA-Open-Science-School/blob/main/Packages_Manager_and_Containers/pipeline/run.py
+
+The Notebook is here:
+
+https://github.com/spsrc/SKA-Open-Science-School/blob/main/Packages_Manager_and_Containers/pipeline/run.ipynb
+
 
 ## Python Package Managers
 
 <img width="907" alt="imagen" src="https://user-images.githubusercontent.com/7033451/236794732-815861e3-5b12-41d8-a657-22adf76edad1.png">
 
-We will work on how to reproduce this proposed software environment documented in (Our example for this session)[#our_example_for_this_session].
+We will work on how to reproduce this proposed software environment documented in (Our example for this session)[#our_pipeline_for_this_session].
 
 ### Using pip
 
@@ -44,7 +53,7 @@ So the ideal for software reproducibility management is to use Python virtual en
 
 In order to use Python Virtual envs, yo have to install virtualenv. To do it open a shell and type the following command:
 
-``pip3 install virtualenv`` or ``pip install virtualenv``
+``sudo apt-get install python3-virtualenv``
 
 Check what the version we will install (and is installed in our system):
 
@@ -62,7 +71,7 @@ Now is time to activate the virtual environment. To activate the virtual environ
 
 Deactivate the virtual environment. To deactivate the virtual environment, simply type the following command:
 
-``source skaschool/bin/deactivate``
+``deactivate``
 
 This will deactivate the virtual environment and return you to your original Python environment, so everything installed will not be available.
 
@@ -77,10 +86,9 @@ Create a file `requirements.txt` with the next lines:
 
 ```
 numpy
-astropy
 matplotlib
-casatools
-casatasks
+astropy
+scikit-image
 ```
 
 And then we install all these packages for this study:
@@ -92,22 +100,64 @@ pip install -r requirements.txt
 
 All this packages are ready to be used withing the skaschool environment.
 
-(?) What about the versions of the packages we work with? Recommendation: Fix the versions of the packages to make sure that our code only works with those packages.
+(?) What about the versions of the packages we work with? 
+- Recommendation: Fix the versions of the packages to make sure that our code only works with those packages.
 
-Change `requirements.txt` and include the versions of the packages:
+We can check our current version of installed packages:
+
+```
+pip list
+```
+
+It will show something like the next:
+
+```
+Package             Version  
+------------------- ---------
+astropy             5.2.2    
+contourpy           1.0.7    
+cycler              0.11.0   
+fonttools           4.39.3   
+imageio             2.28.1   
+importlib-resources 5.12.0   
+kiwisolver          1.4.4    
+lazy-loader         0.2      
+matplotlib          3.7.1    
+networkx            3.1      
+numpy               1.24.3   
+packaging           23.1     
+Pillow              9.5.0    
+pip                 20.0.2   
+pkg-resources       0.0.0    
+pyerfa              2.0.0.3  
+pyparsing           3.0.9    
+python-dateutil     2.8.2    
+PyWavelets          1.4.1    
+PyYAML              6.0      
+scikit-image        0.20.0   
+scipy               1.9.1    
+setuptools          44.0.0   
+six                 1.16.0   
+tifffile            2023.4.12
+wheel               0.34.2   
+zipp                3.15.0   
+
+```
+
+
+Now we can fix our dependencies to a concrete version. Change `requirements.txt` and include the versions of the packages:
 
 
 ```
-numpy==XXX
-astropy==XXX
-matplotlib==XXX
-casatools==XXX
-casatasks==XXX
+numpy==1.24.0
+matplotlib==3.7.0
+astropy>=5.2
+scikit-image==0.20.0
 ```
 
 Once we've tested this environment, we can close and deactivate it:
 
-``source skaschool/bin/deactivate``
+``deactivate``
 
 ### Conda/Miniconda
 
