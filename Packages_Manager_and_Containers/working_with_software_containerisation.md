@@ -27,16 +27,16 @@ In addition, docker allows you to build your own images and use them from a publ
 
 ### First example with docker: executing a containerised version of `CASA`
 
-Pull of the image from a public repository of images in DockerHub:
+Pull of the image from a public repository of images in DockerHub (https://hub.docker.com/r/amigahub/casa):
 
 ```
-docker pull amigahub/casa:6.5
+docker pull amigahub/casa:6.5.0
 ```
 
 Run the container based on the this image:
 
 ```
-docker run -it casa:6.5 
+docker run -it amigahub/casa:6.5.0 ./casa-6.5.0-15-py3.6/bin/casa 
 ```
 
 Show containers running and the list of images pulled:
@@ -60,6 +60,8 @@ For this purpose, containerisation tools provide utilities and image definition 
 
 In Docker this file is called `Dockerfile` and in Singularity it is called `Definition File` or `.def`.
 
+The first part is to create the minimal environment within an image:
+
 ```
 FROM ubuntu:20.04
 
@@ -71,25 +73,11 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 # Install Python dependencies
-RUN pip3 install numpy astropy matplotlib
+RUN pip3 install astropy numpy matplotlib scikit-image
 
-RUN wget https://casa.nrao.edu/download/distro/casa-release-5.7.2-2.el7/binaries/casa-release-5.7.2-2.el7.tar.gz && \
-    tar xzf casa-release-5.7.2-2.el7.tar.gz && \
-    rm -f casa-release-5.7.2-2.el7.tar.gz && \
-    cd /casa-release-5.7.2-2.el7 && \
-    ./bin/extractpkg.sh
-
-ENV PATH="/casa-release-5.7.2-2.el7/bin:${PATH}"
-
-# Copy the Python script to the container
-COPY pipeline.py .
-
-# Run the Python script
-CMD ["python3", "pipeline.py"]
 ```
 
 Another option is to create a `Dockerfile` by using a conda environment:
-
 
 ```
 FROM continuumio/miniconda3:latest
@@ -100,23 +88,14 @@ RUN apt-get update && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-# Create a Conda environment for CASA
+# Create a Conda environment 
 RUN conda create -n casa6 python=3.8 && \
     conda install -n casa6 -c conda-forge casa=6.2.0 && \
     conda clean -ya
 
-# Activate CASA environment and install additional Python packages
-SHELL ["conda", "run", "-n", "casa6", "/bin/bash", "-c"]
-RUN pip install numpy astropy matplotlib
+RUN pip install numpy astropy matplotlib scikit-image
 
-# Copy the Python script to the container
-COPY pipeline.py .
-
-# Run the Python script
-CMD ["python", "pipeline.py"]
 ```
-
-Make sure to put your `pipeline.py` file in the same directory as the `Dockerfile` before building the image. 
 
 Then build the image with:
 
@@ -124,11 +103,77 @@ Then build the image with:
 docker build -t pipeline:v1 .
 ```
 
-And then run the image:
+Once created we can see the images created/downloaded:
 
 ```
-docker run -it pipeline:v1
+docker images
 ```
+
+To test this recent image in a container, you have to type the next:
+
+```
+docker run -it pipeline:v1 python3
+```
+
+You can check that all the libraries were installed:
+
+```
+import astropy
+...
+```
+
+Finally exit from the container.
+
+Now we are going to complete the code to store the results and to include the code to execute our pipeline:
+
+```
+FROM ubuntu:20.04
+
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
+    python3.6 \
+    python3-pip \
+    wget \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install Python dependencies
+RUN pip3 install astropy numpy matplotlib scikit-image
+
+RUN mkdir /code/
+RUN mkdir /output/
+
+COPY run.py /code/
+CMD ["python3", "/code/run.py"]
+```
+
+We need to build this new image:
+
+
+```
+docker build -t pipeline:v2
+```
+
+Then we have to run the pipeline:
+
+```
+docker run -it pipeline:v2
+```
+
+And check the results: Wait, where are the outputs of this pipeline?
+
+We have to connect our user storage with the container storage:
+
+```
+docker run -it -v ./output:/output pipeline:v2
+```
+
+Now we can see the outputs.
+
+**In this point you have created two ways to share your pipeline:**
+- *1) A static version *
+- *2) A flexible version *
+
+
 
 ### Publishing our image to a public docker registry
 
