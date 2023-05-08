@@ -27,6 +27,11 @@ Libraries that we will need:
 - MathPlotLib
 - CASA Modular
 
+## Python Package Managers
+
+<img width="907" alt="imagen" src="https://user-images.githubusercontent.com/7033451/236794732-815861e3-5b12-41d8-a657-22adf76edad1.png">
+
+We will work on how to reproduce this proposed software environment documented in (Our example for this session)[#our_example_for_this_session].
 
 ### Using pip
 
