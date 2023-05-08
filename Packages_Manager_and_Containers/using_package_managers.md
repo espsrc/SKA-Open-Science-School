@@ -202,7 +202,7 @@ rm Miniconda3-latest-MacOSX-x86_64.sh
 Miniconda for Windows: You can follow the instructions (download the exe file) from here: https://docs.conda.io/projects/conda/en/latest/user-guide/install/windows.html
 
 
-### Adding Mamba 
+#### Adding Mamba 
 
 Mamba!
 
@@ -307,7 +307,7 @@ zlib                      1.2.12               h7f8727e_1
 
 #### Adding packages to a conda environment
 
-### Manually and on demand 
+##### Manually and on demand 
 
 We can install any software available in `anaconda.org` with a simple command. For example:
 
@@ -345,7 +345,7 @@ conda env export --from-history
 ```
 
 
-#### From an `environment.yml` file
+##### From an `environment.yml` file
 
 One way to create and manage conda environments is by using an environment.yml file. This file contains the specifications of the packages needed for the project, including the name and version of the packages, and any required dependencies. 
 Here's our example for this environment.yml file:
@@ -353,18 +353,14 @@ Here's our example for this environment.yml file:
 
 ```
 name: skaschool_py3.8_automated
-  
 channels:
 - conda-forge
 - defaults
-
 dependencies:
-- 
 - numpy
 - astropy
 - matplotlib
-- casatools
-- casatasks
+- scikit-image
 ```
 
 To test it, first we need deactivate our environment:
@@ -399,17 +395,15 @@ We can easily remove any environment created (you may need to deactivate it firs
 conda env remove -n skaschool_py3.8
 ```
 
-### Conclusion
 
-Our replicable project with conda should contain the following:
+#### Distributing our pipiline
 
-- environment.yml file
-- Our data file
-- Code or Notebook with the pipeline
-- Instructions to 
-  - activate the environment with conda and
-  - run the pipeline.
-  
+The way to distribute our project will be a repository where it will be included:
+
+- The environment.yml file
+- The pipeline file: run.py
+- The installation of miniconda/mamba and execution documentation.
+
   
 
 
