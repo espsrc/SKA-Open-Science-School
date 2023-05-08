@@ -247,7 +247,7 @@ Go to the environment where you have Singularity installed to do some tests.
 singularity pull docker://godlovedc/lolcow
 ```
 
-This command will simply download an image that already exists in Docker (`docker://godlovedc/lolcow` from DockerHub: lol docker), and store it as a local file with SIF format.
+This command will simply download an image that already exists in Docker (`docker://godlovedc/lolcow` from DockerHub: lol docker), and store it as a local file with `SIF format`.
 
 Then, we execute the image as an executable, simply typing:
 
@@ -257,22 +257,17 @@ singularity run lolcow_latest.sif
 
 ### Building our image with Singularity
 
-We have to create a Definition file like this:
+We have to create a Definition file `.def` like this (check https://docs.sylabs.io/guides/3.7/user-guide/definition_files.html):
 
+*Create a file with name pipeline.def*
 
 ```
-Bootstrap: docker
-From: manuparra/ubuntu-python3.6-casa6.3:latest
+Bootstrap: library
+From: ubuntu:20.04
 
 %labels
     maintainer="Manuel Parra<mparra@iaa.es>"
-    description="Singularity image with Python 3.6, CASA 6.3, and some common packages installed."
-
-%environment
-    # Set the Python path to include the CASA installation
-    export PYTHONPATH=/home/casa/packages/RHEL7/release/casa-release-6.3.0-143.el7/bin/python3.6:/home/casa/packages/RHEL7/release/casa-release-6.3.0-143.el7/lib/python3.6/site-packages:${PYTHONPATH}
-    # Set the CASA data directory to /home/casa/data
-    export CASA_DATA=/home/casa/data
+    description="Singularity image "
 
 %post
     # Install required packages
@@ -282,21 +277,86 @@ From: manuparra/ubuntu-python3.6-casa6.3:latest
     rm -rf /var/lib/apt/lists/*
 
     # Install required Python packages
-    pip3 install numpy astropy matplotlib casatools casatasks
+    pip3 install numpy astropy numpy matplotlib scikit-image
 
-    # Set up the CASA environment variables
-    echo 'alias casa="/home/casa/packages/RHEL7/release/casa-release-6.3.0-143.el7/bin/casa"' >> /root/.bashrc
+```
+
+This is a first approach that will allow us to run a python environment with all the containerised dependencies and then run the pipeline from our own filesystem, using one of the most interesting features of Singularity.
+
+Time to build this definition file:
+
+```
+sudo singularity build pipeline.sif pipeline.def
+```
+
+**Note: sudo here ?**
+
+You can see a newly created `pipeline.sif` file that stores the image. This image is fully shareable and distributable.
+
+To execute it:
+
+```
+singularity run pipeline.sif
+```
+
+And after this step we can run your pipeline:
+
+```
+Singularity> python3.8 run.py
+```
+
+*Error: It it looking for `/output/`but it is not in your system.*
+
+Change your path within the `run.py` or, better, to mount this folder for the container :
+
+*Remember: Create an `output` folder*
+
+```
+singularity run -B output/:/output pipeline.sif
+```
+
+Finally the last option to containerise this pipeline is to include the code inside the image:
+
+```
+Bootstrap: library
+From: ubuntu:20.04
+
+%labels
+    maintainer="Manuel Parra<mparra@iaa.es>"
+    description="Singularity image "
+
+%files
+    run.py run.py
+%post
+    # Install required packages
+    apt-get update && \
+    apt-get install -y python3-pip && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+
+    # Install required Python packages
+    pip3 install numpy astropy numpy matplotlib scikit-image
 
 %runscript
-    python /app/pipeline.py
+    python3.8 run.py
 
 ```
 
-Then is time to build this definition file:
+Build the image:
 
 ```
-sudo singularity build pipeline.sif pipelines.def
+sudo singularity build pipeline-v2.sif pipeline-v2.def
 ```
+
+And then run the container:
+
+```
+singularity run -B output/:/output pipeline-v2.sif
+
+```
+
+Check the output folder ! :)
+
 
 
 
