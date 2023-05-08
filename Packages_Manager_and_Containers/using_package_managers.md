@@ -144,9 +144,15 @@ zipp                3.15.0
 
 ```
 
+If we want to `freeze` the packages we can use:
 
-Now we can fix our dependencies to a concrete version. Change `requirements.txt` and include the versions of the packages:
+```
+pip freeze >> requirements-tested.txt
+```
 
+If we want to fix our dependencies to a concrete version different to the latest, you have to change `requirements.txt` and to include the versions of the packages:
+
+<img width="1087" alt="imagen" src="https://user-images.githubusercontent.com/7033451/236886595-a9788aad-7c92-449e-b888-5cfccfade1d0.png">
 
 ```
 numpy==1.24.0
