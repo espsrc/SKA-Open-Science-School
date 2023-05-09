@@ -12,8 +12,7 @@ By the end of this session, you will have a fully scientific reproducible softwa
 
 ## Our pipeline for this session
 
-![imagen](https://github.com/spsrc/SKA-Open-Science-School/assets/7033451/c5e76477-43a4-441e-b040-1d69b5059ff0)
-
+![imagen](https://github.com/spsrc/SKA-Open-Science-School/assets/7033451/13a96a4b-5753-42a8-bb75-faf0840a273f)
 
 For this session we will prepare an example to perform the next steps in a pipeline.
 
