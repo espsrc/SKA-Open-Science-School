@@ -12,9 +12,12 @@ By the end of this session, you will have a fully scientific reproducible softwa
 
 ## Our pipeline for this session
 
+![imagen](https://github.com/spsrc/SKA-Open-Science-School/assets/7033451/c5e76477-43a4-441e-b040-1d69b5059ff0)
+
+
 For this session we will prepare an example to perform the next steps in a pipeline.
 
-- We will use the next FITS file: http://cdsarc.u-strasbg.fr/viz-bin/getCatFile_Redirect/?-plus=-%2b&J/A%2bA/632/A78/./fits/HCG16_CD_rob2_MS.pbcor.fits
+- We will use the next FITS file: 
 - We will load this FITS file.
 - We will create a few plots with different filters.
 - We will compose a grid of these plots as output.
