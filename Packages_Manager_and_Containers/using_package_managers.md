@@ -12,11 +12,11 @@ By the end of this session, you will have a fully scientific reproducible softwa
 
 ## Our pipeline for this session
 
-![imagen](https://github.com/spsrc/SKA-Open-Science-School/assets/7033451/13a96a4b-5753-42a8-bb75-faf0840a273f)
+![imagen](https://github.com/spsrc/SKA-Open-Science-School/assets/7033451/1b658de2-084d-47fb-bdeb-502ed3a0a0ec)
 
 For this session we will prepare an example to perform the next steps in a pipeline.
 
-- We will use the next FITS file: 
+- We will use the next FITS file: http://data.astropy.org/tutorials/FITS-images/HorseHead.fits
 - We will load this FITS file.
 - We will create a few plots with different filters.
 - We will compose a grid of these plots as output.
