@@ -36,7 +36,7 @@ This section will provide an introduction to Docker/Singularity and how it can b
 
 📦 [Go to the material](./working_with_software_containerisation.md)
 
-## 5. Best practices for creating and sharing containers images and python environments for scientific software
+## 5. Best practices for creating and sharing container images and python environments for scientific software
 
 This section will provide an overview of best practices for creating and sharing container images for scientific software. Attendees will learn about version control for Dockerfiles, documentation, security considerations, and other best practices for creating and sharing reproducible environments.
 
