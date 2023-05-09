@@ -10,11 +10,11 @@ Document all installation and configuration steps, dependencies, and any other i
 
 ## Use version control
 
-Store all code, configuration files, data, and other resources in a version control system like Git. This makes it easy to keep track of changes, collaborate with others, and roll back to previous versions if necessary.
+Store all code, configuration files, data, and other resources in a version control system like Git. This makes it easy to keep track of changes, collaborate with others, and roll back to previous versions if necessary. And include a License !.
 
 - https://git-scm.com/
 - https://gitlab.com/rluna-gitlab/gitlab-ce
-- 
+
 
 ## Use a containerization platform
 
