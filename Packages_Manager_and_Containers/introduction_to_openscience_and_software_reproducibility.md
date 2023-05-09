@@ -1,4 +1,4 @@
-# Introduction to software reproducibility
+# Software reproducibility and distribution: challenges
 
 <img width="1087" alt="imagen" src="https://user-images.githubusercontent.com/7033451/236940497-92d0c8bd-cbfc-40be-9010-7ecb911cb311.png">
 
