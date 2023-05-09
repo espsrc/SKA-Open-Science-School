@@ -11,6 +11,9 @@
 
 :bulb: Whether you are a researcher, software developer, or data scientist, this workshop will provide you with valuable skills for building reproducible and reliable scientific software to deliver to the science community.
 
+Summary slides: [SKAO OpenScience School](PackageManager%20%26%20Containers.pdf).
+
+
 ## 1. Software reproducibility and distribution: challenges.
 
 This section will provide an introduction to the importance of reproducibility of the software research. Students will learn about the challenges faced by researchers in ensuring reproducibility, and the role that software dependencies and technical factors can play in these challenges.
