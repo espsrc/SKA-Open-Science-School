@@ -28,6 +28,8 @@ Libraries that we will need:
 - `astropy`
 - `skimage (scikit-image)`
 
+![imagen](https://github.com/spsrc/SKA-Open-Science-School/assets/7033451/223b2007-9bef-4f06-a69f-cb878bf686b5)
+
 The code is located here:
 
 https://github.com/spsrc/SKA-Open-Science-School/blob/main/Packages_Manager_and_Containers/pipeline/run.py
