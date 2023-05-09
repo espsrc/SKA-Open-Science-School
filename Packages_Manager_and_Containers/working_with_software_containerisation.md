@@ -1,5 +1,7 @@
 # Working with containerisation for software reproducibility
 
+<img width="1087" alt="imagen" src="https://user-images.githubusercontent.com/7033451/237016601-02afac1c-53ec-4368-8a55-0304664922a4.png">
+
 The aim of containerisation of scientific software is to provide a way to package and distribute scientific software in a way that ensures reproducibility of computational experiments across different computing environments. 
 
 Containerisation creates a self-contained environment that includes all the software dependencies and libraries required to run the scientific software, regardless of the underlying operating system or hardware. 
@@ -15,7 +17,7 @@ Docker is a platform for containerizing applications, enabling software to be pa
 
 ### Installation
 
-There are many ways to install docker. The easiest way is to use the developer's own instructions for the particular operating system. You can follow the steps here.
+There are many ways to install docker. The easiest way is to use the developer's own instructions for the particular operating system. You can follow the steps [here](https://docs.docker.com/engine/install/).
 
 ### Use and creation of container images
 
