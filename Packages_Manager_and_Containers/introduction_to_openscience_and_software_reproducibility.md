@@ -25,9 +25,9 @@ One of the main challenges is the dependency management, which involves keeping 
 
 Another challenge is the difference in the computing environments, which can result in different outcomes when the software is run in different environments. This can be due to differences in the hardware, operating systems, and software dependencies. 
 
-### Standarization
+### Standarisation
 
-Additionally, the lack of standardization and documentation can make it difficult for others to understand and reproduce the software. 
+Additionally, the lack of standarisation and documentation can make it difficult for others to understand and reproduce the software. 
 
 ### Software evolution
 
