@@ -140,35 +140,43 @@ We will create a repository on GitHub (or other repository provider) with the na
 We are going to use the next code as an example:
 
 ```
-import matplotlib.pyplot as plt
 import numpy as np
-from astropy.io import fits
-from astropy.visualization import (MinMaxInterval, PercentileInterval,
-                                   SqrtStretch, ImageNormalize)
+import matplotlib.pyplot as plt
+import astropy.io.fits as fits
+from astropy.utils.data import download_file
+from skimage import filters
 
-# Load the FITS file
-hdu_list = fits.open('example.fits')
-image_data = hdu_list[0].data
+# Load FITS image
+image_file = download_file('http://data.astropy.org/tutorials/FITS-images/HorseHead.fits', cache=True )
+hdulist = fits.open(image_file)
+image = hdulist[0].data
 
-# Display the image
-fig, ax = plt.subplots()
-norm = ImageNormalize(image_data, interval=PercentileInterval(99.5),
-                      stretch=SqrtStretch())
-ax.imshow(image_data, cmap='gray', origin='lower', norm=norm)
+# Save FITS image as PNG
+plt.imsave('/output/original.png', image, cmap='gray')
 
-# Apply various filters
-fig, (ax1, ax2, ax3) = plt.subplots(ncols=3, figsize=(10, 4))
-ax1.imshow(image_data, cmap='gray', origin='lower')
-ax1.set_title('Original')
-ax2.imshow(np.log10(image_data), cmap='gray', origin='lower')
-ax2.set_title('Logarithmic')
-ax3.imshow(np.power(image_data, 1/3), cmap='gray', origin='lower')
-ax3.set_title('Cubic root')
+# Apply filters
+gaussian_image = filters.gaussian(image, sigma=2)
+sobel_image = filters.sobel(image)
 
-plt.show()
+# Save filtered images as PNGs
+plt.imsave('/output/gaussian.png', gaussian_image, cmap='gray')
+plt.imsave('/output/sobel.png', sobel_image, cmap='gray')
+
+# Display original and filtered images
+fig, axs = plt.subplots(2, 2, figsize=(8, 8))
+axs[0, 0].imshow(image, cmap='gray')
+axs[0, 0].set_title('Original')
+axs[0, 1].imshow(gaussian_image, cmap='gray')
+axs[0, 1].set_title('Gaussian')
+axs[1, 0].imshow(sobel_image, cmap='gray')
+axs[1, 0].set_title('Sobel')
+axs[1, 1].axis('off')
+
+# Save figure as PNG
+fig.savefig('/output/filtered.png')
 ```
 
-To have this code in your project, clone this repository or download directly this Jupyter notebook with the name: index.ipynb
+To have this code in your project, clone this repository or download directly this Jupyter notebook with the name: `index.ipynb`
 
 #### Add the `requirements.txt` file
 
@@ -177,9 +185,10 @@ As our study focuses on python code, here we can use several options to deploy t
 Create a new file in your repository with the name ``requirements.txt`` and add the next lines:
 
 ```
-astropy
-numpy
-matplotlib
+numpy==1.24.0
+matplotlib==3.7.0
+astropy>=5.2
+scikit-image==0.20.0
 ```
 
 *Remember to indicate the specific versions if necessary for your analysis.*
@@ -187,10 +196,82 @@ matplotlib
 
 #### Adding the runtime version of Python
 
-runtime.txt
+You need to include a file named `runtime.txt` with the python runtime name.
+
+(Create a file named: runtime.txt and add `python3.8` to the file)
+
+#### Running this first example on BinderHub
 
 
-## Deploying Binder in your own infrastructure
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/manuparra/binder-pipeline-v1/HEAD)
+
+See all the bootstrap examples: https://github.com/binder-examples/
+
+### Creating a Binder by using a container definition
+
+For a Dockerfile to work on Binder, it must meet the following requirements:
+
+It must install a recent version of Jupyter Notebook and JupyterLab. This should be installed via pip with the notebook and jupyterlab packages. So in your dockerfile, you should have a command like:
+
+
+```
+RUN python3 -m pip install --no-cache-dir notebook jupyterlab
+```
+
+It must explicitly specify a tag in the image you source. When sourcing a pre-existing Docker image with FROM, a tag is required. The tag cannot be latest. Note that tag naming conventions differ between images, so we recommend using the SHA tag of the image.
+
+Here’s an example of a Dockerfile FROM statement that would work.
+
+```
+FROM jupyter/scipy-notebook:cf6258237ff9
+```
+
+It must set up a user whose uid is 1000. It is bad practice to run processes in containers as root, and on binder we do not allow root container processes.
+
+
+```
+ARG NB_USER=jovyan
+ARG NB_UID=1000
+ENV USER ${NB_USER}
+ENV NB_UID ${NB_UID}
+ENV HOME /home/${NB_USER}
+
+RUN adduser --disabled-password \
+    --gecos "Default user" \
+    --uid ${NB_UID} \
+    ${NB_USER}
+```
+
+### Ensure reproducibility for your Binder repository
+
+Here are some tips to ensure reproducibility of your Binder links even if you must re-build your repository image:
+
+
+
+
+#### Pin dependencies
+
+Don’t just specify numpy, specify numpy==1.12.0.
+
+`pip freeze` is a handy tool to export the exact version of every Python package in your environment in a format that can be used in `requirements.txt`.
+
+`conda env export -n <env-name>` is the equivalent for anaconda’s `environment.yml` file.
+
+#### Using Dockerfiles
+
+- You need a popular Docker Image.
+
+```
+# Note that there must be a tag
+FROM jupyter/scipy-notebook:cf6258237ff9
+```
+
+- You are building complex software.
+- You are using a language that is not directly supported
+
+
+
+#### Deploying Binder in your own infrastructure
 
 ## Conclusions
 
