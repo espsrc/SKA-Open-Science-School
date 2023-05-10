@@ -207,6 +207,9 @@ You need to include a file named `runtime.txt` with the python runtime name.
 
 [![Binder](https://srcdev.skatelescope.org/binderhub/badge_logo.svg)](https://srcdev.skatelescope.org/binderhub/v2/gh/manuparra/binder-pipeline-v1/HEAD)
 
+[![Binder](https://srcdev.skatelescope.org/binderhub/badge_logo.svg)](http://jupyter.jive.nl/binderhub/v2/gh/manuparra/binder-pipeline-v1/HEAD)
+
+
 See all the bootstrap examples: https://github.com/binder-examples/
 
 ### Creating a Binder by using our container definition
@@ -278,10 +281,9 @@ FROM jupyter/scipy-notebook:cf6258237ff9
 
 #### Deploying Binder in your own infrastructure
 
-![imagen](https://github.com/spsrc/SKA-Open-Science-School/assets/7033451/1c8a5f5a-6df3-473d-9dca-d87dca18aefd)
+![imagen](https://github.com/spsrc/SKA-Open-Science-School/assets/7033451/f56c7494-0839-498b-9e8e-e5bf71aac8d1)
 
-
-## Conclusions
+## ACKs
 
 
 
