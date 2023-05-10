@@ -209,7 +209,7 @@ You need to include a file named `runtime.txt` with the python runtime name.
 
 See all the bootstrap examples: https://github.com/binder-examples/
 
-### Creating a Binder by using a container definition
+### Creating a Binder by using our container definition
 
 For a Dockerfile to work on Binder, it must meet the following requirements:
 
@@ -244,12 +244,15 @@ RUN adduser --disabled-password \
     ${NB_USER}
 ```
 
+We can use an example of Dockerfile:
+
+https://github.com/binder-examples/minimal-dockerfile
+
+and then modify to run our pipeline. 
+
 ### Ensure reproducibility for your Binder repository
 
 Here are some tips to ensure reproducibility of your Binder links even if you must re-build your repository image:
-
-
-
 
 #### Pin dependencies
 
@@ -276,8 +279,6 @@ FROM jupyter/scipy-notebook:cf6258237ff9
 #### Deploying Binder in your own infrastructure
 
 ![imagen](https://github.com/spsrc/SKA-Open-Science-School/assets/7033451/1c8a5f5a-6df3-473d-9dca-d87dca18aefd)
-
-
 
 
 ## Conclusions
