@@ -283,7 +283,8 @@ FROM jupyter/scipy-notebook:cf6258237ff9
 
 ![imagen](https://github.com/spsrc/SKA-Open-Science-School/assets/7033451/f56c7494-0839-498b-9e8e-e5bf71aac8d1)
 
-## ACKs
+https://github.com/alan-turing-institute/the-turing-way/blob/main/workshops/build-a-binderhub/workshop-presentations/zero-to-binderhub.md
+
 
 
 
